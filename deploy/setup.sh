@@ -1,9 +1,9 @@
 #!/bin/sh
 
 IMAGE=$1
-KUBECONFIG=$2
+CONFIG="/bitnami/jenkins/jenkins_home/kubeconfig/${ENV}"
 
-cat <<EOF | ${KUBECONFIG} kubectl apply -f -
+cat <<EOF | KUBECONFIG=${CONFIG} kubectl apply -f -
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -28,4 +28,3 @@ spec:
           name: http
           protocol: TCP
 EOF
-
