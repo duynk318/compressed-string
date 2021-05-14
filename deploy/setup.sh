@@ -28,4 +28,3 @@ spec:
           name: http
           protocol: TCP
 EOF
-
